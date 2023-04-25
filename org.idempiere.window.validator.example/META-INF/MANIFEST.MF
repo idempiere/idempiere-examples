@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Window Validator Example
+Bundle-SymbolicName: org.idempiere.window.validator.example;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.idempiere.window.validator.example.Activator
+Bundle-Vendor: iDempiere
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.idempiere.window.validator.example
+Import-Package: org.osgi.framework;version="1.3.0",
+ org.osgi.service.component.annotations;version="1.3.0"
+Require-Bundle: org.adempiere.base;bundle-version="11.0.0",
+ org.adempiere.ui.zk;bundle-version="11.0.0"
+Service-Component: OSGI-INF/org.idempiere.window.validator.example.CopyOrderLineWindowValidator.xml,
+ OSGI-INF/org.idempiere.window.validator.example.QtyInvoicedWindowValidator.xml
+Bundle-ActivationPolicy: lazy

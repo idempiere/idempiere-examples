@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.idempiere.window.validator.example.CopyOrderLineWindowValidator">
+   <property name="AD_Window_UU" value="05af08b6-ca81-4f0b-b0f0-3e1e3d9a3a2e"/>
+   <property name="events" value="beforeProcess"/>
+   <service>
+      <provide interface="org.adempiere.webui.adwindow.validator.WindowValidator"/>
+   </service>
+   <implementation class="org.idempiere.window.validator.example.CopyOrderLineWindowValidator"/>
+</scr:component>

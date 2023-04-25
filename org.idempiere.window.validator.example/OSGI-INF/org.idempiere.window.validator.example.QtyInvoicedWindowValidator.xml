@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.idempiere.window.validator.example.QtyInvoicedWindowValidator">
+   <property name="AD_Window_UU" value="c91d7690-9abe-45d2-a271-0f907c1b4329"/>
+   <property name="events" value="beforeDocAction"/>
+   <service>
+      <provide interface="org.adempiere.webui.adwindow.validator.WindowValidator"/>
+   </service>
+   <implementation class="org.idempiere.window.validator.example.QtyInvoicedWindowValidator"/>
+</scr:component>
