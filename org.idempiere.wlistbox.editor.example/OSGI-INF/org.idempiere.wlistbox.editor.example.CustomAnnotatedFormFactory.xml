@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.idempiere.wlistbox.editor.example.CustomAnnotatedFormFactory">
+   <property name="service.ranking" type="Integer" value="1"/>
+   <service>
+      <provide interface="org.adempiere.webui.factory.IFormFactory"/>
+   </service>
+   <implementation class="org.idempiere.wlistbox.editor.example.CustomAnnotatedFormFactory"/>
+</scr:component>
