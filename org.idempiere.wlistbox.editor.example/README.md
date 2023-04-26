@@ -1,1 +1,1 @@
-Example for WListbox custom column editor configuration (through custom Payment Allocaion form example)
+Implement custom Payment Allocation form to illustrate how to setup custom column editor for WListbox.
