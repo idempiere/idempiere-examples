@@ -1,7 +1,10 @@
 package org.idempiere.listbox.group.example;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.adempiere.webui.panel.ADForm;
 import org.compiere.model.MBPGroup;
@@ -79,13 +82,22 @@ public class ViewBPartnerForm extends ADForm {
 	protected BPartnerGroupModel createGroupModel() {
 		List<List<MBPartner>> groupBPartners = new ArrayList<>();
 		Query query = new Query(Env.getCtx(), MBPGroup.Table_Name, null, null);
-		List<MBPGroup> groups = query.setOnlyActiveRecords(true).setOrderBy("Name").list();		
+		List<MBPGroup> groups = query.setOnlyActiveRecords(true).setOrderBy("Name").list();
+		List<Map<String, BigDecimal>> totals = new ArrayList<>(); 
 		for(MBPGroup group : groups) {
 			query = new Query(Env.getCtx(), MBPartner.Table_Name, MBPartner.Table_Name + "." + MBPartner.COLUMNNAME_C_BP_Group_ID + "=?", null); 
 			List<MBPartner> bpartners = query.setParameters(group.getC_BP_Group_ID()).setOnlyActiveRecords(true).setOrderBy("Name").list();
 			groupBPartners.add(bpartners);
+			Map<String, BigDecimal> total = new HashMap<>();
+			total.put(MBPartner.COLUMNNAME_SO_CreditLimit, BigDecimal.ZERO);
+			total.put(MBPartner.COLUMNNAME_SO_CreditUsed, BigDecimal.ZERO);
+			bpartners.forEach(bp -> {
+				total.put(MBPartner.COLUMNNAME_SO_CreditLimit, total.get(MBPartner.COLUMNNAME_SO_CreditLimit).add(bp.getSO_CreditLimit()));
+				total.put(MBPartner.COLUMNNAME_SO_CreditUsed, total.get(MBPartner.COLUMNNAME_SO_CreditUsed).add(bp.getSO_CreditUsed()));
+			});
+			totals.add(total);
 		}
-		BPartnerGroupModel groupModel = new BPartnerGroupModel(groupBPartners, groups, null);
+		BPartnerGroupModel groupModel = new BPartnerGroupModel(groupBPartners, groups, totals);
 		groupModel.setMultiple(true);
 		groupModel.setGroupSelectable(true);
 		return groupModel;

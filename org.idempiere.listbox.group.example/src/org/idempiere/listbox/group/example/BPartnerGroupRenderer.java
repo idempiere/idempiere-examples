@@ -1,5 +1,8 @@
 package org.idempiere.listbox.group.example;
 
+import java.math.BigDecimal;
+import java.util.Map;
+
 import org.adempiere.webui.component.Label;
 import org.adempiere.webui.listbox.renderer.AbstractGroupListitemRenderer;
 import org.compiere.model.MBPGroup;
@@ -25,8 +28,21 @@ public class BPartnerGroupRenderer extends AbstractGroupListitemRenderer<Object>
 	}
 
 	@Override
-	public void renderGroup(Listitem item, Object data, int index) {
-		super.renderGroup(item, data, index);
+	public void renderGroupfoot(Listitem item, Object data, int index) {
+		@SuppressWarnings("unchecked")
+		Map<String, BigDecimal> total = (Map<String, BigDecimal>) data;
+		Listcell cell = new Listcell();
+		cell.setSpan(3);
+		cell.appendChild(new Label("Total:").rightAlign());
+		item.appendChild(cell);
+		
+		cell = new Listcell();
+		cell.appendChild(new Label(DisplayType.getNumberFormat(DisplayType.Amount).format(total.get(MBPartner.COLUMNNAME_SO_CreditLimit))).rightAlign());
+		item.appendChild(cell);		
+		
+		cell = new Listcell();
+		cell.appendChild(new Label(DisplayType.getNumberFormat(DisplayType.Amount).format(total.get(MBPartner.COLUMNNAME_SO_CreditUsed))).rightAlign());
+		item.appendChild(cell);
 	}
 
 	@Override
