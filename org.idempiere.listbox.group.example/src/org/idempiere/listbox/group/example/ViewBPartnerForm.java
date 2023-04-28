@@ -82,7 +82,7 @@ public class ViewBPartnerForm extends ADForm {
 	protected BPartnerGroupModel createGroupModel() {
 		List<List<MBPartner>> groupBPartners = new ArrayList<>();
 		Query query = new Query(Env.getCtx(), MBPGroup.Table_Name, null, null);
-		List<MBPGroup> groups = query.setOnlyActiveRecords(true).setOrderBy("Name").list();
+		List<MBPGroup> groups = query.setClient_ID().setOnlyActiveRecords(true).setOrderBy("Name").list();
 		List<Map<String, BigDecimal>> totals = new ArrayList<>(); 
 		for(MBPGroup group : groups) {
 			query = new Query(Env.getCtx(), MBPartner.Table_Name, MBPartner.Table_Name + "." + MBPartner.COLUMNNAME_C_BP_Group_ID + "=?", null); 
