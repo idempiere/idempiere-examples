@@ -5,11 +5,13 @@
      <bold>org/adempiere/report/jasper/fonts/Arial_Bold.ttf</bold>
      <italic>org/adempiere/report/jasper/fonts/Arial_Italic.ttf</italic>
      <boldItalic>org/adempiere/report/jasper/fonts/Arial_Bold_Italic.ttf</boldItalic>
+     <pdfEncoding>Identity-H</pdfEncoding>
      <pdfEmbedded>true</pdfEmbedded>
   </fontFamily>
   <fontFamily name="Comic Sans Test">
      <normal>org/adempiere/report/jasper/fonts/Comic_Sans_MS.ttf</normal>
      <bold>org/adempiere/report/jasper/fonts/Comic_Sans_MS_Bold.ttf</bold>
+     <pdfEncoding>Identity-H</pdfEncoding>
      <pdfEmbedded>true</pdfEmbedded>
   </fontFamily>
   <fontFamily name="Courier New">
@@ -17,6 +19,7 @@
      <bold>org/adempiere/report/jasper/fonts/Courier_New_Bold.ttf</bold>
      <italic>org/adempiere/report/jasper/fonts/Courier_New_Italic.ttf</italic>
      <boldItalic>org/adempiere/report/jasper/fonts/Courier_New_Bold_Italic.ttf</boldItalic>
+     <pdfEncoding>Identity-H</pdfEncoding>
      <pdfEmbedded>true</pdfEmbedded>
   </fontFamily>
   <fontFamily name="Georgia">
@@ -24,6 +27,7 @@
      <bold>org/adempiere/report/jasper/fonts/Georgia_Bold.ttf</bold>
      <italic>org/adempiere/report/jasper/fonts/Georgia_Italic.ttf</italic>
      <boldItalic>org/adempiere/report/jasper/fonts/Georgia_Bold_Italic.ttf</boldItalic>
+     <pdfEncoding>Identity-H</pdfEncoding>
      <pdfEmbedded>true</pdfEmbedded>
   </fontFamily>
   <fontFamily name="Monospaced">
@@ -31,6 +35,7 @@
      <bold>org/adempiere/report/jasper/fonts/LiberationMono-Bold.ttf</bold>
      <italic>org/adempiere/report/jasper/fonts/LiberationMono-Italic.ttf</italic>
      <boldItalic>org/adempiere/report/jasper/fonts/LiberationMono-BoldItalic.ttf</boldItalic>
+     <pdfEncoding>Identity-H</pdfEncoding>
      <pdfEmbedded>true</pdfEmbedded>
   </fontFamily>
   <fontFamily name="Times New Roman">
@@ -38,6 +43,7 @@
      <bold>org/adempiere/report/jasper/fonts/Times_New_Roman_Bold.ttf</bold>
      <italic>org/adempiere/report/jasper/fonts/Times_New_Roman_Italic.ttf</italic>
      <boldItalic>org/adempiere/report/jasper/fonts/Times_New_Roman_Bold_Italic.ttf</boldItalic>
+     <pdfEncoding>Identity-H</pdfEncoding>
      <pdfEmbedded>true</pdfEmbedded>
   </fontFamily>
   <fontFamily name="Verdana">
@@ -45,6 +51,7 @@
      <bold>org/adempiere/report/jasper/fonts/Verdana_Bold.ttf</bold>
      <italic>org/adempiere/report/jasper/fonts/Verdana_Italic.ttf</italic>
      <boldItalic>org/adempiere/report/jasper/fonts/Verdana_Bold_Italic.ttf</boldItalic>
+     <pdfEncoding>Identity-H</pdfEncoding>
      <pdfEmbedded>true</pdfEmbedded>
   </fontFamily>
 </fontFamilies>
