@@ -3,9 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Callout Annotation Example
 Bundle-SymbolicName: org.idempiere.callout.annotation.example
 Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: idempiere.org
 Import-Package: org.osgi.service.component.annotations;version="1.5.1"
 Require-Bundle: org.adempiere.base;bundle-version="11.0.0"
-Service-Component: OSGI-INF/org.idempiere.callout.annotation.example.MyCalloutFactory.xml
 Automatic-Module-Name: org.idempiere.callout.annotation.example
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
+Service-Component: OSGI-INF/org.idempiere.callout.annotation.example.MyCalloutFactory.xml
