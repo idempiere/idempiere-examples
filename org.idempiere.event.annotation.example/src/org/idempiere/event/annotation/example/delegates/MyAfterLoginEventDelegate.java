@@ -19,18 +19,43 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,          *
  * MA 02110-1301, USA.                                                 *
  **********************************************************************/
-package org.idempiere.callout.annotation.example;
+package org.idempiere.event.annotation.example.delegates;
 
-import org.adempiere.base.AnnotationBasedColumnCalloutFactory;
-import org.adempiere.base.IColumnCalloutFactory;
-import org.osgi.service.component.annotations.Component;
+import java.util.Enumeration;
 
-@Component(immediate = true, service = IColumnCalloutFactory.class, property = {"service.ranking:Integer=-1"})
-public class MyCalloutFactory extends AnnotationBasedColumnCalloutFactory {
+import org.adempiere.base.annotation.EventTopicDelegate;
+import org.adempiere.base.event.LoginEventData;
+import org.adempiere.base.event.annotations.AfterLoadPref;
+import org.adempiere.base.event.annotations.AfterLoginEventDelegate;
+import org.compiere.model.MUser;
+import org.compiere.util.Env;
+import org.osgi.service.event.Event;
 
+@EventTopicDelegate
+public class MyAfterLoginEventDelegate extends AfterLoginEventDelegate {
+
+	public MyAfterLoginEventDelegate(Event event) {
+		super(event);
+	}
+	
 	@Override
-	protected String[] getPackages() {
-		return new String[] {"org.idempiere.callout.annotation.example"};
+	protected void onAfterLogin(LoginEventData data) {
+		MUser user = MUser.get(data.getAD_User_ID());
+		System.out.println("onAfterLogin: " + user);
 	}
 
+	@AfterLoadPref
+	public void onAfterLoadPref() {
+		Enumeration<Object> e = Env.getCtx().keys();
+		StringBuilder builder = new StringBuilder();
+		while (e.hasMoreElements()) {
+			Object k = e.nextElement();
+			if (k != null && k.toString().startsWith("P|")) {
+				if (builder.length() > 0)
+					builder.append(", ");
+				builder.append(k.toString());
+			}
+		}
+		System.out.println("onAfterLoadPref: " + builder.toString());
+	}
 }

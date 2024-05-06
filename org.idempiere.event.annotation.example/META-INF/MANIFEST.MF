@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: iDempiere Event Annotation Example
+Bundle-SymbolicName: org.idempiere.event.annotation.example
+Bundle-Version: 1.0.0.qualifier
+Import-Package: org.osgi.service.component.annotations;version="1.5.1",
+ org.osgi.service.event;version="[1.4.0,2.0.0]"
+Require-Bundle: org.adempiere.base;bundle-version="12.0.0"
+Service-Component: OSGI-INF/org.idempiere.event.annotation.example.MyAnnotationBasedEventManager.xml
+Bundle-Vendor: idempiere.org
+Automatic-Module-Name: org.idempiere.event.annotation.example
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-17

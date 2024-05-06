@@ -29,5 +29,5 @@ workspace folder
 |  
 +--- idempiere-examples  
 |  
-|    +--- org.idempiere.callout.annotation.example  
+|    +--- org.idempiere.event.annotation.example  
 ```

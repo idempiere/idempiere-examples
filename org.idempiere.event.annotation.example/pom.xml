@@ -7,6 +7,6 @@
 		<version>${revision}</version>
 		<relativePath>../parent-repository-pom.xml</relativePath>
 	</parent>
-	<artifactId>org.idempiere.callout.annotation.example</artifactId>
+	<artifactId>org.idempiere.event.annotation.example</artifactId>
 	<packaging>eclipse-plugin</packaging>	
 </project>
