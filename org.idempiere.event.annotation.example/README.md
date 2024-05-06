@@ -1,4 +1,4 @@
-Example to have plugin column callout executed after core column callouts.
+Examples for using event annotations with event delegate. 
 
 1. To Test:
 * Import project to your iDempiere Eclipse workspace.
