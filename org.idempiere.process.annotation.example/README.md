@@ -1,4 +1,4 @@
-Example to have plugin column callout executed after core column callouts.
+Examples for using process, process parameter annotations and AnnotationBasedProcessFactory.
 
 1. To Test:
 * Import project to your iDempiere Eclipse workspace.
@@ -29,5 +29,5 @@ workspace folder
 |  
 +--- idempiere-examples  
 |  
-|    +--- org.idempiere.callout.annotation.example  
+|    +--- org.idempiere.process.annotation.example  
 ```

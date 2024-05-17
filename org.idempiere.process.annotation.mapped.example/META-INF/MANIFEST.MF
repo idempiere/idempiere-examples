@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Process annotation with mapped process factory example
+Bundle-SymbolicName: org.idempiere.process.annotation.mapped.example
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.adempiere.base;bundle-version="12.0.0",
+ org.adempiere.plugin.utils;bundle-version="12.0.0"
+Service-Component: OSGI-INF/org.idempiere.process.annotation.mapped.example.MyActivator.xml
+Import-Package: org.osgi.framework;version="[1.10.0,2.0.0]",
+ org.osgi.service.component.annotations;version="1.5.1"
+Bundle-Vendor: idempiere.org
+Automatic-Module-Name: org.idempiere.process.annotation.mapped.example
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.idempiere.process.annotation.mapped.example.MyActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-17

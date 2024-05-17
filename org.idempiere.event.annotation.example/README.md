@@ -19,7 +19,7 @@ Examples for using event annotations with event delegate.
 	* Parent pom is idempiere/org.idempiere.parent/pom.xml.
 	* Pre-requisite: run `mvn install` at idempiere source folder to install iDempiere core bundles into local repository.
 
-3. Folder structur for pom.xml and pom-targetplaform.xml  
+3. Folder structure for pom.xml and pom-targetplaform.xml  
 ```
 workspace folder  
 |  
