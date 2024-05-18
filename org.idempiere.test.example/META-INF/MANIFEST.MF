@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Unit Test Example
+Bundle-SymbolicName: org.idempiere.test.example
+Bundle-Version: 1.0.0.qualifier
+Import-Package: org.idempiere.test,
+ org.junit.jupiter.api;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.api.condition;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.api.extension;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.api.extension.support;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.api.function;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.api.io;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.api.parallel;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.params;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.params.aggregator;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.params.converter;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.params.provider;version="[5.9.0,6.0.0]",
+ org.junit.jupiter.params.support;version="[5.9.0,6.0.0]"
+Require-Bundle: org.adempiere.base;bundle-version="12.0.0"
+Bundle-Vendor: idempiere.org
+Automatic-Module-Name: org.idempiere.test.example
+Bundle-RequiredExecutionEnvironment: JavaSE-17
