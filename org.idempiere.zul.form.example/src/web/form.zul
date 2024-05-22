@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<div style="height: 100%; width: 100%; overflow: auto;">
+		<borderlayout width="100%" style="min-height: 600px;">
+			<north border="none">
+				<div use="org.adempiere.webui.component.Panel" id="parameterLayoutPanel">						
+				</div>
+			</north>
+			<south border="none" vflex="min">
+				<div use="org.adempiere.webui.component.Panel" hflex="1" vflex="min" id="allocationLayoutPanel">						
+				</div>
+			</south>
+			<center>
+				<borderlayout style="border: none;min-height: 300px;" width="100%" vflex="1" id="infoPanel">
+					<north border="none" autoscroll="true" splittable="true" size="50%" collapsible="true">
+						<div use="org.adempiere.webui.component.Panel" id="paymentPanel" width="100%" vflex="1">
+							<borderlayout id="paymentLayout" width="100%" vflex="1">
+								<north border="none">
+									<label use="org.adempiere.webui.component.Label" id="paymentLabel" vflex="min" value="${arg.paymentLabel}"></label>
+								</north>
+								<south border="none">
+									<div style="text-align: right"><label use="org.adempiere.webui.component.Label" id="paymentInfo" vflex="min"/></div>
+								</south>
+								<center border="none">
+									<listbox use="org.adempiere.webui.component.WListbox" width="100%" vflex="1" sizedByContent="false" id="paymentTable"></listbox>
+								</center>
+							</borderlayout>
+						</div>
+					</north>
+					<center border="none" autoscroll="true">
+						<div use="org.adempiere.webui.component.Panel" id="invoicePanel" width="100%" vflex="1">
+							<borderlayout id="invoiceLayout" width="100%" vflex="1">
+								<north border="none">
+									<label id="invoiceLabel" use="org.adempiere.webui.component.Label" vflex="min" value="${arg.invoiceLabel}"></label>
+								</north>
+								<south>
+									<div style="text-align: right"><label use="org.adempiere.webui.component.Label" id="invoiceInfo" vflex="min"/></div>
+								</south>
+								<center border="none">
+									<listbox use="org.adempiere.webui.component.WListbox" width="100%" vflex="1" sizedByContent="false" id="invoiceTable"></listbox>
+								</center>
+							</borderlayout>
+						</div>
+					</center>
+				</borderlayout>
+			</center>
+		</borderlayout>
+	</div>
+</zk>

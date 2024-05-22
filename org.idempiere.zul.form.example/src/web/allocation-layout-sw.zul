@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<grid use="org.adempiere.webui.component.Grid" sclass="grid-layout" id="allocationLayout" width="100%" vflex="min">
+		<rows>
+			<row>
+				<cell>
+					<hbox width="100%" pack="end">
+						<div style="text-align: right"><label id="differenceLabel" value="${arg.differenceLabel}"/></div>
+						<div style="text-align: right"><label id="allocCurrencyLabel" value="${arg.allocCurrencyLabel}"/></div>
+					</hbox>
+				</cell>
+				<cell>
+					<textbox use="org.adempiere.webui.component.Textbox" id="differenceField" hflex="true"></textbox>
+				</cell>
+			</row>
+			<row>	
+				<cell>
+					<div style="text-align: right"><label id="chargeLabel" value="${arg.chargeLabel}"/></div>
+				</cell>
+				<cell id="chargePickCell"/>
+			</row>
+			<row>
+				<cell>
+					<div style="text-align: right"><label id="DocTypeLabel" value="${arg.DocTypeLabel}"/></div>
+				</cell>
+				<cell id="docTypePickCell"/>
+			</row>
+			<row>
+				<cell colspan="2">
+					<hbox pack="end" width="100%">
+						<button use="org.adempiere.webui.component.Button" id="allocateButton" label="${arg.allocateButton}"></button>
+						<button use="org.adempiere.webui.component.Button" id="refreshButton" label="${arg.refreshButton}"></button>
+					</hbox>
+				</cell>
+			</row>
+		</rows>
+	</grid>
+	<hlayout id="statusBar" vflex="min"></hlayout>
+</zk>

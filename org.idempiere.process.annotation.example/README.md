@@ -5,6 +5,7 @@ Examples for using process, process parameter annotations and AnnotationBasedPro
 * Duplicate service.product launch configuration.
 * At the duplicated service.product launch configuration, goes to the plugin tab and select this plugin.
 * Launch iDempiere using the duplicated service.product launch configuration.
+* The plugin include 2Pack that will create process and menu with the name "Print Product XML".
 
 2. POM Files
 * pom.xml

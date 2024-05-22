@@ -1,11 +1,11 @@
-Examples for using process, process parameter annotations and Core.getMappedProcessFactory().
+Examples for using zul and zk annotations to build custom form (ported from org.adempiere.webui.apps.form.WAllocation)
 
 1. To Test:
 * Import project to your iDempiere Eclipse workspace.
 * Duplicate service.product launch configuration.
 * At the duplicated service.product launch configuration, goes to the plugin tab and select this plugin.
 * Launch iDempiere using the duplicated service.product launch configuration.
-* The plugin include 2Pack that will create process and menu with the name "Print Business Partner XML".
+* The plugin include 2Pack that will create form and menu with the name "zul Payment Allocation".
 
 2. POM Files
 * pom.xml
@@ -30,5 +30,5 @@ workspace folder
 |  
 +--- idempiere-examples  
 |  
-|    +--- org.idempiere.process.annotation.mapped.example  
+|    +--- org.idempiere.zul.form.example  
 ```

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<grid use="org.adempiere.webui.component.Grid" sclass="grid-layout" id="parameterLayout">
+		<rows>
+			<row>
+				<cell><div style="text-align: right"><label id="bpartnerLabel" value="${arg.bpartnerLabel}"/></div></cell>									
+				<cell id="bpartnerSearchCell"/>
+				<cell><div style="text-align: right"><label id="dateLabel" value="${arg.dateLabel}"/></div></cell>
+				<cell id="dateFieldCell"/>
+				<cell><div style="text-align: right"><label id="organizationLabel" value="${arg.organizationLabel}"/></div></cell>
+				<cell id="organizationPickCell"/>
+			</row>
+			<row>
+				<cell><div style="text-align: right"><label id="currencyLabel" value="${arg.currencyLabel}"/></div></cell>									
+				<cell id="currencyPickCell"/>
+				<cell colspan="2">
+					<hbox>
+						<checkbox use="org.adempiere.webui.component.Checkbox" id="multiCurrency" label="${arg.multiCurrency}"></checkbox>
+						<checkbox use="org.adempiere.webui.component.Checkbox" id="autoWriteOff" label="${arg.autoWriteOff}" tooltiptext="${arg.autoWriteOff_tooltiptext}"></checkbox>
+					</hbox>
+				</cell>
+			</row>
+		</rows>
+	</grid>
+</zk>
