@@ -7,7 +7,8 @@ Examples for jasper report
 * Launch iDempiere using the duplicated service.product launch configuration.
 * Included 2Pack:
   * **Jasper Balance Sheet Example** process, update the **Jasper Process** value of **Balance Sheet Current Month** financial report record.
-  * **JasperOrder_Test** menu and process.
+  * **Jasper Order Bundle Resource Example** menu and process.
+  * **Jasper Order Classpath Resource Example** menu and process.
 
 2. POM Files
 * pom.xml
