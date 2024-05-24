@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrderLine_Test" pageWidth="595" pageHeight="842" columnWidth="545" leftMargin="20" rightMargin="30" topMargin="0" bottomMargin="0" uuid="f574bce3-0dd1-4f00-85c0-fa59e13ac56d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="Y19vcmRlcmxpbmUgLDE1LDE1LDBjYTFiOGIxLWQzZjAtNDYwMS04OTFjLTU4YmFmMmE4ZWUzNDs="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<parameter name="COLUMN_LOOKUP" class="java.util.function.BiFunction"/>
+	<parameter name="C_Order_ID" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT line,
+	m_product_id,
+	c_uom_id,
+	qtyentered,
+	priceactual,
+	linenetamt
+FROM c_orderline
+WHERE c_order_id= $P{C_Order_ID} 
+ORDER BY line, c_orderline_id]]>
+	</queryString>
+	<field name="line" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="line"/>
+		<property name="com.jaspersoft.studio.field.label" value="line"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_orderline"/>
+	</field>
+	<field name="m_product_id" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="m_product_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="m_product_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_orderline"/>
+	</field>
+	<field name="c_uom_id" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="c_uom_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="c_uom_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_orderline"/>
+	</field>
+	<field name="qtyentered" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="qtyentered"/>
+		<property name="com.jaspersoft.studio.field.label" value="qtyentered"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_orderline"/>
+	</field>
+	<field name="priceactual" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="priceactual"/>
+		<property name="com.jaspersoft.studio.field.label" value="priceactual"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_orderline"/>
+	</field>
+	<field name="linenetamt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="linenetamt"/>
+		<property name="com.jaspersoft.studio.field.label" value="linenetamt"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_orderline"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="91" height="30" uuid="e7bd1f09-be83-43dc-81c7-a70ca20e244e"/>
+				<text><![CDATA[Line]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="91" y="3" width="91" height="30" uuid="a7e09fbb-ce52-4eaa-b89d-58fc2adb650a"/>
+				<text><![CDATA[Product]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="182" y="3" width="91" height="30" uuid="f07b5d1a-aaa9-4405-b52e-2f741ccd6386"/>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="4" width="91" height="30" uuid="000e9c9d-96b6-45b1-8d02-95945ea4717e"/>
+				<text><![CDATA[UOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="4" width="91" height="30" uuid="dac4b4d1-fb2d-43af-a4dd-bff611b49fe4"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Unit Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="4" width="90" height="30" uuid="a8c098d0-1cb0-49c9-a74b-2d405354aa53"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Line Net]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
+			<textField>
+				<reportElement x="0" y="0" width="91" height="39" uuid="3314d3e1-f5cf-43c0-9017-2f0a46148e4c"/>
+				<textFieldExpression><![CDATA[$F{line}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="0" width="91" height="39" uuid="f6eed4aa-04e5-40e6-b270-317b242ea27e"/>
+				<textFieldExpression><![CDATA[$P{COLUMN_LOOKUP}.apply( "c_orderline.m_product_id", $F{m_product_id} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="0" width="91" height="39" uuid="7351d147-6c3d-43d4-8a70-1db840331179"/>
+				<textFieldExpression><![CDATA[$F{qtyentered}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="0" width="91" height="39" uuid="ed603876-69f5-4bf9-b969-d3c1be641f1a"/>
+				<textFieldExpression><![CDATA[$P{COLUMN_LOOKUP}.apply( "c_orderline.c_uom_id", $F{c_uom_id} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="0" width="91" height="39" uuid="f48a7f29-11a9-4393-a3a1-e257fca247d6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{priceactual}]]></textFieldExpression>
+				<patternExpression><![CDATA["#,###,##0.00"]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="90" height="39" uuid="61db80af-a02b-4126-a235-782f42c350c3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{linenetamt}]]></textFieldExpression>
+				<patternExpression><![CDATA["#,###,##0.00"]]></patternExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</summary>
+</jasperReport>
