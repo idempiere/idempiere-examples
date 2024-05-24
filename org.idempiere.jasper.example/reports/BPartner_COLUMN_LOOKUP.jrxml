@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BPartner COLUMN_LOOKUP" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="e115bc59-fd0f-446b-a585-04725e27d7f0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="idempiere"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="AD_CLIENT_ID" class="java.lang.Integer"/>
+	<parameter name="COLUMN_LOOKUP" class="java.util.function.BiFunction"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT c_bpartner.value,
+	c_bpartner.name,
+	c_bpartner.m_pricelist_id,
+	c_bpartner.invoicerule,
+	c_bpartner.value,
+	c_bpartner.name,
+	c_bpartner.m_pricelist_id,
+	c_bpartner.invoicerule,
+	c_bpartner_location.isbillto,
+	c_bpartner_location.isshipto,
+	c_bpartner_location.ispayfrom,
+	c_bpartner_location.isremitto,
+	c_bpartner_location.c_location_id
+FROM c_bpartner_location
+	INNER JOIN c_bpartner ON 
+	 c_bpartner_location.c_bpartner_id = c_bpartner.c_bpartner_id 
+WHERE 
+	 c_bpartner.ad_client_id = $P{AD_CLIENT_ID}
+	 ORDER BY c_bpartner.value]]>
+	</queryString>
+	<field name="value" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="value"/>
+		<property name="com.jaspersoft.studio.field.label" value="value"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_bpartner"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_bpartner"/>
+	</field>
+	<field name="m_pricelist_id" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="m_pricelist_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="m_pricelist_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_bpartner"/>
+	</field>
+	<field name="invoicerule" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="invoicerule"/>
+		<property name="com.jaspersoft.studio.field.label" value="invoicerule"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_bpartner"/>
+	</field>
+	<field name="c_location_id" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="c_location_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="c_location_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_bpartner_location"/>
+	</field>
+	<field name="isshipto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="isshipto"/>
+		<property name="com.jaspersoft.studio.field.label" value="isshipto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_bpartner_location"/>
+	</field>
+	<field name="isbillto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="isbillto"/>
+		<property name="com.jaspersoft.studio.field.label" value="isbillto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_bpartner_location"/>
+	</field>
+	<field name="isremitto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="isremitto"/>
+		<property name="com.jaspersoft.studio.field.label" value="isremitto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_bpartner_location"/>
+	</field>
+	<field name="ispayfrom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ispayfrom"/>
+		<property name="com.jaspersoft.studio.field.label" value="ispayfrom"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="c_bpartner_location"/>
+	</field>
+	<background>
+		<band height="575" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="6eb7cb61-0dd7-47a8-8475-5fa6c3a348dc"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="db8457c8-99e9-434f-b439-2d400dff2bcd"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="e20c8a65-aded-41dc-a107-108a9159af99"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="db6d7ead-4383-4f8c-81cf-1e3064eb6924"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="1dcadd54-7d50-4470-85ed-189e4d910b25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Business Partners]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="35d90a9b-bb7e-4ec4-bfa2-68be1967d6b2"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="78" height="15" uuid="a6a1d0e3-789d-476f-a321-106cd5158872">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4f0f767-cfb4-4672-a9cb-87945eacaf15"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[str("value") != null ? str("value") : "str(value)"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="80" y="0" width="95" height="15" uuid="149235d4-d8fd-4ad2-8594-2a17de84eea2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c18298c-1dd0-4b42-ae4b-00d77cfb1e9c"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[str("name") != null ? str("name") : "str(name)"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="179" y="0" width="78" height="15" uuid="be353e35-8cfb-4792-9ed0-7fe7a0ebdf4e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="66242b07-1290-424c-9282-776a5bd74a39"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[str("m_pricelist_id") != null ? str("m_pricelist_id") : "str(m_pricelist_id)"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="257" y="0" width="78" height="15" uuid="52d5a9d0-9ad4-4d8d-81d3-9258de040565">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e7a6eb4-8b73-48ba-a28a-5f60fdca83bf"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[str("invoicerule") != null ? str("invoicerule") : "str(invoicerule)"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="340" y="0" width="196" height="15" uuid="c79618d5-484f-461f-91b4-106aa5350957">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1980adfb-722d-4811-be58-c2ff2a0305c4"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[str("c_location_id") != null ? str("c_location_id") : "str(c_location_id)"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="541" y="0" width="78" height="15" uuid="7dc17c8b-2087-43d3-a8f7-d6da6b1d74fb">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4f21e5c-0c26-463d-96c1-6d75e08e4739"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[str("isshipto") != null ? str("isshipto") : "str(isshipto)"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="619" y="0" width="78" height="15" uuid="b64c88ca-a565-4cdb-8040-dea36f10578f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="87e71e19-b76d-4400-b200-7e8accfa550c"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[str("isbillto") != null ? str("isbillto") : "str(isbillto)"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="89a3da05-fdde-4ffe-965f-cc476f72e3ab"/>
+				<textField>
+					<reportElement style="Detail" isPrintRepeatedValues="false" x="0" y="0" width="78" height="15" uuid="f2c7ad69-3850-4a12-a967-0f83353f8252">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4f0f767-cfb4-4672-a9cb-87945eacaf15"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" isPrintRepeatedValues="false" x="80" y="0" width="95" height="15" uuid="9897b1f7-c425-4837-8a1b-a937fb232ffc">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c18298c-1dd0-4b42-ae4b-00d77cfb1e9c"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="Detail" x="179" y="0" width="78" height="15" uuid="8532cbcb-d79c-4d68-bfe3-6368cee38ee2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="66242b07-1290-424c-9282-776a5bd74a39"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$P{COLUMN_LOOKUP}.apply("c_bpartner.m_pricelist_id",$F{m_pricelist_id})]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="Detail" x="257" y="0" width="78" height="15" uuid="0ffb6c77-3a6d-429d-bd96-26cb7a081d7c">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e7a6eb4-8b73-48ba-a28a-5f60fdca83bf"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$P{COLUMN_LOOKUP}.apply("c_bpartner.invoicerule",$F{invoicerule})]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="Detail" x="340" y="0" width="196" height="15" uuid="977cfc5a-b8f5-4786-9f34-43deaef8b32b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1980adfb-722d-4811-be58-c2ff2a0305c4"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$P{COLUMN_LOOKUP}.apply("c_bpartner_location.c_location_id",$F{c_location_id})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="Detail" x="541" y="0" width="78" height="15" uuid="971647ae-16dc-4cd1-b5a3-bed57df521fb">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4f21e5c-0c26-463d-96c1-6d75e08e4739"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{isshipto}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="Detail" x="619" y="0" width="78" height="15" uuid="29928b7e-e023-47bb-a1d6-3cfecb76b104">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="87e71e19-b76d-4400-b200-7e8accfa550c"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{isbillto}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="99" y="16" width="705" height="1" uuid="e5f21b91-7f24-498e-97a1-0e93db9225a4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="95484ca0-40b4-4752-95d8-1afbc33c820b"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

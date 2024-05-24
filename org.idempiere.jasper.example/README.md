@@ -9,6 +9,7 @@ Examples for jasper report
   * **Jasper Balance Sheet Example** process, update the **Jasper Process** value of **Balance Sheet Current Month** financial report record.
   * **Jasper Order Bundle Resource Example** menu and process.
   * **Jasper Order Classpath Resource Example** menu and process.
+  * **Jasper BPartner COLUMN_LOOKUP Example** menu and process.
 
 2. POM Files
 * pom.xml
