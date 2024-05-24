@@ -20,7 +20,7 @@ When speaking with @carlosruiz, his practice is to:
 1. clone this repository locally
 1. copy the desired example into your project
 1. use this page as a guide to determine what files need to change and to get your plugin running: https://wiki.idempiere.org/en/Developing_Plug-Ins_-_Get_your_Plug-In_running
-  1. todo: is this the right set of instructions?
+    1. todo: is this the right set of instructions?
 1. To ensure all files have changed, search the plugin for the term "example".
 1. Modify the example class according to your needs.
 
