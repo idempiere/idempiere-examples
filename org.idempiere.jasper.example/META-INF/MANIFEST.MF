@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jasper Report Example
+Bundle-SymbolicName: org.idempiere.jasper.example
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.idempiere.jasper.example.MyActivator
+Bundle-Vendor: idempiere.org
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: org.idempiere.jasper.example
+Import-Package: org.osgi.framework;version="1.3.0"
+Require-Bundle: org.adempiere.base;bundle-version="12.0.0",
+ org.adempiere.plugin.utils;bundle-version="12.0.0"
+Service-Component: OSGI-INF/org.idempiere.jasper.example.MyActivator.xml
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Balance General" pageWidth="612" pageHeight="792" columnWidth="582" leftMargin="15" rightMargin="15" topMargin="25" bottomMargin="25" uuid="0a9c5978-7c8a-4fcb-bb78-933cefa4737c">
+	<property name="ireport.zoom" value="1.3310000000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="30"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="iDempiere"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Level" forecolor="#010101" fontSize="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<paragraph firstLineIndent="30"/>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{levelno}.intValue() == 0]]></conditionExpression>
+			<style forecolor="#010101" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" fontName="SansSerif" fontSize="8" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false">
+				<paragraph lineSpacing="Double" firstLineIndent="1"/>
+			</style>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{levelno}.intValue() == 1 || $F{levelno}.intValue() == 2]]></conditionExpression>
+			<style forecolor="#010101" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" fontName="SansSerif" fontSize="7" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+				<paragraph lineSpacing="1_1_2" firstLineIndent="10"/>
+			</style>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{levelno}.intValue() == 3]]></conditionExpression>
+			<style forecolor="#010101" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" fontName="SansSerif" fontSize="7" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false">
+				<paragraph lineSpacing="1_1_2" firstLineIndent="20"/>
+			</style>
+		</conditionalStyle>
+	</style>
+	<style name="LevelNo" forecolor="#010101" pattern="#,##0.00" fontSize="6" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{levelno}.intValue() == 0 && ($F{col_0} != null && $F{col_0}.compareTo(new BigDecimal(0)) != 0)]]></conditionExpression>
+			<style forecolor="#010101" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" pattern="#,##0.00" fontName="SansSerif" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+				<box>
+					<topPen lineWidth="1.5" lineStyle="Double"/>
+				</box>
+				<paragraph lineSpacing="Double"/>
+			</style>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[($F{levelno}.intValue() == 1 || $F{levelno}.intValue() == 2)]]></conditionExpression>
+			<style forecolor="#010101" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" pattern="#,##0.00" fontName="SansSerif" fontSize="7" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<paragraph lineSpacing="1_1_2"/>
+			</style>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[($F{levelno}.intValue() == 3) && ($F{col_0}.compareTo(new BigDecimal(0)) != 0)]]></conditionExpression>
+			<style forecolor="#010101" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" pattern="#,##0.00" fontName="SansSerif" fontSize="7" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false">
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<paragraph lineSpacing="1_1_2"/>
+			</style>
+		</conditionalStyle>
+	</style>
+	<parameter name="T_Report_AD_PInstance_ID" class="java.lang.Integer"/>
+	<parameter name="C_Period_ID" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT T_Report.*,
+(Select StartDate From C_Period WHERE C_Period_ID = $P{C_Period_ID}),
+(Select EndDate From C_Period WHERE C_Period_ID = $P{C_Period_ID}),
+(Select Name From AD_Client WHERE AD_Client_ID = AD_PInstance.AD_Client_ID) as client
+FROM T_Report 
+JOIN AD_PInstance ON (T_Report.AD_PInstance_ID=AD_PInstance.AD_PInstance_ID)
+WHERE T_Report.AD_PInstance_ID = $P{T_Report_AD_PInstance_ID}
+Order By T_Report.seqno, T_Report.name]]>
+	</queryString>
+	<field name="ad_pinstance_id" class="java.math.BigDecimal"/>
+	<field name="pa_reportline_id" class="java.math.BigDecimal"/>
+	<field name="record_id" class="java.math.BigDecimal"/>
+	<field name="fact_acct_id" class="java.math.BigDecimal"/>
+	<field name="seqno" class="java.math.BigDecimal"/>
+	<field name="levelno" class="java.math.BigDecimal"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="col_0" class="java.math.BigDecimal"/>
+	<field name="col_2" class="java.math.BigDecimal"/>
+	<field name="col_1" class="java.math.BigDecimal"/>
+	<field name="col_3" class="java.math.BigDecimal"/>
+	<field name="col_4" class="java.math.BigDecimal"/>
+	<field name="col_5" class="java.math.BigDecimal"/>
+	<field name="col_6" class="java.math.BigDecimal"/>
+	<field name="col_7" class="java.math.BigDecimal"/>
+	<field name="col_8" class="java.math.BigDecimal"/>
+	<field name="col_9" class="java.math.BigDecimal"/>
+	<field name="col_10" class="java.math.BigDecimal"/>
+	<field name="col_11" class="java.math.BigDecimal"/>
+	<field name="col_12" class="java.math.BigDecimal"/>
+	<field name="col_13" class="java.math.BigDecimal"/>
+	<field name="col_14" class="java.math.BigDecimal"/>
+	<field name="col_15" class="java.math.BigDecimal"/>
+	<field name="col_16" class="java.math.BigDecimal"/>
+	<field name="col_17" class="java.math.BigDecimal"/>
+	<field name="col_18" class="java.math.BigDecimal"/>
+	<field name="col_19" class="java.math.BigDecimal"/>
+	<field name="col_20" class="java.math.BigDecimal"/>
+	<field name="t_report_uu" class="java.lang.String"/>
+	<field name="startdate" class="java.sql.Timestamp"/>
+	<field name="enddate" class="java.sql.Timestamp"/>
+	<field name="client" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="562" height="12" uuid="7361df8f-35ac-4fe2-8927-9c66ca8c8479"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{client}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="181" y="72" width="100" height="10" uuid="944ae488-5b02-45a9-bd0e-f28ebb43a3d0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startdate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="355" y="72" width="100" height="10" uuid="6115832c-8624-4145-9785-4e04c8da273b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enddate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="56" width="562" height="15" uuid="d619b0b0-d168-466f-9672-152ac45334af"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[BALANCE SHEET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="72" width="74" height="10" uuid="42195193-3b1f-4fa2-b246-65575d15cc89"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="72" width="74" height="10" uuid="e560aaf5-94b5-4001-bfbc-025159315266"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="2" width="100" height="15" forecolor="#010101" backcolor="#D3D3D3" uuid="79e552ae-01a9-41bb-b617-fdaec28d1bc7"/>
+				<box>
+					<topPen lineWidth="1.25" lineColor="#5B5B5B"/>
+					<bottomPen lineWidth="1.25" lineColor="#5B5B5B"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ACCOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="512" y="2" width="70" height="15" forecolor="#010101" backcolor="#D3D3D3" uuid="cc909d99-feb7-4a83-bd24-95c60647d9e3"/>
+				<box>
+					<topPen lineWidth="1.25" lineColor="#5B5B5B"/>
+					<bottomPen lineWidth="1.25" lineColor="#5B5B5B"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CLOSING]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="2" width="202" height="15" forecolor="#010101" backcolor="#D3D3D3" uuid="7b75611c-5c80-4e17-8d1b-06f376ee4441"/>
+				<box>
+					<topPen lineWidth="1.25" lineColor="#5B5B5B"/>
+					<bottomPen lineWidth="1.25" lineColor="#5B5B5B"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="442" y="2" width="70" height="15" forecolor="#010101" backcolor="#D3D3D3" uuid="dd0da821-daa8-4213-aec9-37a0758df291"/>
+				<box>
+					<topPen lineWidth="1.25" lineColor="#5B5B5B"/>
+					<bottomPen lineWidth="1.25" lineColor="#5B5B5B"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CREDIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="372" y="2" width="70" height="15" forecolor="#010101" backcolor="#D3D3D3" uuid="4a53bd3f-cacf-4920-959f-9e48cf32cbd9"/>
+				<box>
+					<topPen lineWidth="1.25" lineColor="#5B5B5B"/>
+					<bottomPen lineWidth="1.25" lineColor="#5B5B5B"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[DEBIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="302" y="2" width="70" height="15" forecolor="#010101" backcolor="#D3D3D3" uuid="f79f2d16-408f-44ae-9c47-9c1168f749eb"/>
+				<box>
+					<topPen lineWidth="1.25" lineColor="#5B5B5B"/>
+					<bottomPen lineWidth="1.25" lineColor="#5B5B5B"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[OPENING]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement style="Level" x="0" y="0" width="100" height="14" uuid="09a5c9b2-64d2-4ea6-9765-1429dcb5110a"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="LevelNo" x="512" y="0" width="70" height="14" uuid="671173fa-b73b-43ff-862c-58e64a432dc0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{col_5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Level" x="100" y="0" width="202" height="14" uuid="dd8f8a85-ecbb-4670-9359-e2bab279e4a2"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="LevelNo" x="442" y="0" width="70" height="14" uuid="a02ac21e-cf3a-4917-ad6f-aa782867604d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[IF($F{col_2}.signum()<0,$F{col_2}.negate(),new BigDecimal("0.00"))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="LevelNo" x="372" y="0" width="70" height="14" uuid="98137f77-67da-40b6-b242-8b81a62df2fb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[IF($F{col_2}.signum()>=0,$F{col_2},new BigDecimal("0.00"))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="LevelNo" x="302" y="0" width="70" height="14" uuid="ee3f8b94-50a8-4719-972b-547fcdd8a43a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{col_0}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="1" y="0" width="581" height="17" forecolor="#696969" backcolor="#CCCCCC" uuid="b120bfdf-904a-421c-bb99-077cb367cdfe"/>
+			</frame>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="10" y="5" width="197" height="12" forecolor="#010101" uuid="2bd888de-a175-4ee3-bf51-308f56aa567c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="5" width="80" height="12" forecolor="#010101" uuid="1cb64f09-311d-40e1-b8f3-1c5e5662dd99"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pag. "+$V{PAGE_NUMBER}+" of "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="540" y="5" width="40" height="12" forecolor="#010101" uuid="92271fa5-e837-41d2-82c0-02d13d3dd8a2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
